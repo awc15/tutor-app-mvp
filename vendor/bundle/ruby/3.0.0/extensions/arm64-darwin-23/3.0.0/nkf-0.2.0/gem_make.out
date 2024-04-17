@@ -1,0 +1,15 @@
+current directory: /Users/fasset/Documents/Tutor/vendor/bundle/ruby/3.0.0/gems/nkf-0.2.0/ext/nkf
+/Users/fasset/.rvm/rubies/ruby-3.0.0/bin/ruby -I /Users/fasset/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20240415-86097-21dg3m.rb extconf.rb
+creating Makefile
+
+current directory: /Users/fasset/Documents/Tutor/vendor/bundle/ruby/3.0.0/gems/nkf-0.2.0/ext/nkf
+make "DESTDIR=" clean
+
+current directory: /Users/fasset/Documents/Tutor/vendor/bundle/ruby/3.0.0/gems/nkf-0.2.0/ext/nkf
+make "DESTDIR="
+compiling nkf.c
+linking shared-object nkf.bundle
+
+current directory: /Users/fasset/Documents/Tutor/vendor/bundle/ruby/3.0.0/gems/nkf-0.2.0/ext/nkf
+make "DESTDIR=" install
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 nkf.bundle ./.gem.20240415-86097-m09mzv

@@ -1,0 +1,13 @@
+current directory: /Users/fasset/Documents/Tutor/vendor/bundle/ruby/3.0.0/gems/json-2.7.2/ext/json
+/Users/fasset/.rvm/rubies/ruby-3.0.0/bin/ruby -I /Users/fasset/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20240415-86097-z8pc8q.rb extconf.rb
+creating Makefile
+
+current directory: /Users/fasset/Documents/Tutor/vendor/bundle/ruby/3.0.0/gems/json-2.7.2/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/fasset/Documents/Tutor/vendor/bundle/ruby/3.0.0/gems/json-2.7.2/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/fasset/Documents/Tutor/vendor/bundle/ruby/3.0.0/gems/json-2.7.2/ext/json
+make "DESTDIR=" install

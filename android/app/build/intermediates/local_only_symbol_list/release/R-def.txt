@@ -1,0 +1,25 @@
+R_DEF: Internal format may change without notice
+local
+drawable assets_images_genralimage
+drawable assets_images_genralstudent
+drawable assets_images_image
+drawable assets_images_student1
+drawable assets_images_student2
+drawable assets_images_tutor1
+drawable assets_images_tutor2
+drawable assets_images_tutor3
+drawable assets_images_tutor4
+drawable assets_images_tutor5
+drawable assets_images_tutor6
+drawable assets_images_tutor7
+drawable assets_images_tutor8
+drawable assets_images_tutor9
+drawable node_modules_reactnavigation_elements_src_assets_backicon
+drawable node_modules_reactnavigation_elements_src_assets_backiconmask
+drawable rn_edit_text_material
+integer react_native_dev_server_port
+integer react_native_inspector_proxy_port
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style AppTheme
