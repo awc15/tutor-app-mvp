@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import {
   Modal,
   StyleSheet,
@@ -6,12 +6,13 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   View,
-} from 'react-native';
-import CalendarPicker from 'react-native-calendar-picker';
-import {BLACK, PRIMARY_COLOR, WHITE} from '../assets/Colors';
-import {WINDOW_HEIGHT, WINDOW_WIDTH} from './Mixuns';
+} from "react-native";
+import CalendarPicker from "react-native-calendar-picker";
+import { BLACK, PRIMARY_COLOR, WHITE } from "../assets/Colors";
+import { WINDOW_HEIGHT, WINDOW_WIDTH } from "./Mixuns";
+import Button from "./Button";
 
-export const Calendar = props => {
+export const Calendar = (props) => {
   const [selectedStartDate, setSelectedStartDate] = useState(null);
   const [selectedEndDate, setSelectedEndDate] = useState(null);
   const {
@@ -19,6 +20,7 @@ export const Calendar = props => {
     setShowModal,
     setStartDate = () => {},
     setEndDate = () => {},
+    close = () => {},
   } = props;
   //   constructor(props) {
   //     super(props);
@@ -43,8 +45,8 @@ export const Calendar = props => {
   // }
   const minDate = new Date(); // Today
   const maxDate = new Date(2030, 6, 3);
-  const startDate = selectedStartDate ? selectedStartDate.toString() : '';
-  const endDate = selectedEndDate ? selectedEndDate.toString() : '';
+  const startDate = selectedStartDate ? selectedStartDate.toString() : "";
+  const endDate = selectedEndDate ? selectedEndDate.toString() : "";
 
   return (
     <View style={{}}>
@@ -54,16 +56,21 @@ export const Calendar = props => {
         visible={showModal}
         onRequestClose={() => {
           setShowModal(!showModal);
-        }}>
+        }}
+      >
         <TouchableOpacity
           style={styles.centeredView}
-          onPress={() => setShowModal(false)}>
+          onPress={() => setShowModal(false)}
+        >
           <TouchableHighlight style={styles.modalView}>
             <View
               style={{
                 width: WINDOW_WIDTH * 0.95,
-                justifyContent: 'center',
-              }}>
+                justifyContent: "space-between",
+                alignItems: "center",
+                flex: 1,
+              }}
+            >
               <CalendarPicker
                 startFromMonday={true}
                 allowRangeSelection={true}
@@ -73,10 +80,7 @@ export const Calendar = props => {
                 selectedDayColor={PRIMARY_COLOR}
                 selectedDayTextColor="#FFFFFF"
                 onDateChange={(date, type) => {
-                  console.log('Fahad', type);
-                  console.log('date', date);
-
-                  if (type === 'END_DATE') {
+                  if (type === "END_DATE") {
                     setSelectedEndDate(date);
                     setEndDate(date);
                   } else {
@@ -84,6 +88,11 @@ export const Calendar = props => {
                     setStartDate(date);
                   }
                 }}
+              />
+              <Button
+                onPress={close}
+                value={"Continue"}
+                style={{ alinSelf: "center" }}
               />
             </View>
           </TouchableHighlight>
@@ -95,24 +104,24 @@ export const Calendar = props => {
 const styles = StyleSheet.create({
   container: {
     height: 2,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
   },
   centeredView: {
     backgroundColor: `${BLACK}60`,
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
     bottom: 0,
-    position: 'absolute',
+    position: "absolute",
     height: WINDOW_HEIGHT * 1,
     width: WINDOW_WIDTH * 1,
-    alignItems: 'center',
+    alignItems: "center",
   },
   modalView: {
     backgroundColor: WHITE,
     borderRadius: 20,
     padding: 15,
-    alignItems: 'center',
-    shadowColor: '#000',
+    alignItems: "center",
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -129,18 +138,18 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   buttonOpen: {
-    backgroundColor: '#F194FF',
+    backgroundColor: "#F194FF",
   },
   buttonClose: {
-    backgroundColor: '#2196F3',
+    backgroundColor: "#2196F3",
   },
   textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
   },
   modalText: {
     marginBottom: 15,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });

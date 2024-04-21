@@ -43,8 +43,10 @@
     <string name="character_counter_overflowed_content_description">%2$dમાંથી %1$dની વર્ણ મર્યાદા ઓળંગાઈ ગઈ છે</string>
     <string name="clear_text_end_icon_content_description">ટેક્સ્ટ સાફ કરો</string>
     <string gender="unknown" name="combobox_description">કોમ્બો બોક્સ</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> ને Google Play સેવાઓમાં મુશ્કેલી આવી રહી છે. કૃપા કરીને ફરી પ્રયાસ કરો."</string>
     <string name="error_icon_content_description">ભૂલ</string>
     <string name="exposed_dropdown_menu_content_description">ડ્રૉપડાઉન મેનૂ બતાવો</string>
+    <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"વિવિધ"</string>
     <string gender="unknown" name="header_description">શીર્ષક</string>
     <string name="icon_content_description">સંવાદનું આઇકન</string>
     <string gender="unknown" name="image_description">ફોટો</string>

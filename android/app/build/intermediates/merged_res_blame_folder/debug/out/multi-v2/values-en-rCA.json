@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.tutor.app-mergeDebugResources-34:/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "com.tutor.app-mergeDebugResources-36:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
                     "source": "/Users/fasset/.gradle/caches/transforms-3/b3627ca143232ec2ceb6e319eb18971d/transformed/appcompat-1.6.1/res/values-en-rCA/values-en-rCA.xml",

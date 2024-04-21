@@ -1,104 +1,134 @@
-import React from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, { useState } from "react";
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
-import {useSelector, useDispatch} from 'react-redux';
-import HeaderLayout from '../Components/HeaderLayout';
-import TextElement from '../Components/TextElement';
-import {WINDOW_HEIGHT, WINDOW_WIDTH} from '../Components/Mixuns';
-import {BLACK, GRAY, PRIMARY_COLOR, WHITE} from '../assets/Colors';
-import {Calendar} from '../Components/Calendar';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import Button from '../Components/Button';
+import HeaderLayout from "../Components/HeaderLayout";
+import TextElement from "../Components/TextElement";
+import { WINDOW_HEIGHT, WINDOW_WIDTH } from "../Components/Mixuns";
+import {
+  BLACK,
+  GRAY,
+  PRIMARY_COLOR,
+  SearchIcon,
+  WHITE,
+} from "../assets/Colors";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import Feather from "react-native-vector-icons/Feather";
+import Entypo from "react-native-vector-icons/Entypo";
+import { StudentData, TutorData } from "../assets/MockData";
 
-function TutorHome({navigation, route}) {
-  console.log('route', route.params.from);
-
+function TutorHome({ navigation, route }) {
+  const [subjects, setSubecjts] = useState(route?.params?.data?.Subject);
   return (
-    <HeaderLayout>
-      <View style={{flexDirection: 'row', marginTop: 20}}>
-        {route.params.from !== 'Login' && (
-          <TouchableOpacity
-            style={{paddingLeft: WINDOW_WIDTH * 0.05}}
-            onPress={() => navigation.goBack()}>
-            <AntDesign name="arrowleft" color={BLACK} size={30} />
-          </TouchableOpacity>
-        )}
-      </View>
+    <View>
       <View
         style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          paddingTop: WINDOW_WIDTH * 0.1,
-        }}>
-        <Image
-          source={route.params.data?.Picture}
-          style={{height: 200, width: 200, borderRadius: 100}}
-        />
-        <TextElement textStyle={{fontSize: 30, marginTop: 10}}>
-          {`${route.params.data?.Name} ${route.params.data?.lastName}`}
-        </TextElement>
-        <View
-          style={{
-            width: WINDOW_WIDTH * 0.8,
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-          }}>
-          {route.params.data?.Subject.map(item => (
-            <View
+          paddingTop: WINDOW_HEIGHT * 0.08,
+          backgroundColor: PRIMARY_COLOR,
+          alignItems: "center",
+          justifyContent: "center",
+          borderBottomEndRadius: 20,
+          borderBottomStartRadius: 20,
+          paddingBottom: 30,
+        }}
+      >
+        <SafeAreaView />
+        <View style={{ width: WINDOW_WIDTH * 0.8, flexDirection: "row" }}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("TutorProfile", {
+                data: route?.params?.data,
+                from: "tutor",
+                subjects: subjects,
+                setSubecjts: (subjects) => setSubecjts(subjects),
+              })
+            }
+          >
+            <Image
+              source={route?.params?.data?.Picture}
               style={{
-                borderWidth: 1,
-                borderTopWidth: 0,
-                justifyContent: 'center',
-                height: WINDOW_HEIGHT * 0.08,
-                width: WINDOW_WIDTH * 0.2,
-                borderBottomEndRadius: 20,
-                borderBottomStartRadius: 20,
-                marginLeft: 10,
-                marginTop: 10,
-              }}>
-              <TextElement textStyle={{textAlign: 'center'}}>
-                {item}
-              </TextElement>
-            </View>
-          ))}
-        </View>
-        <View
-          style={{width: WINDOW_WIDTH * 0.8, marginLeft: 10, marginTop: 20}}>
-          <TextElement textStyle={{fontSize: 24, color: GRAY}}>
-            About me:
-          </TextElement>
-          <TextElement
-            textStyle={{
-              fontSize: 16,
-              color: BLACK,
-            }}>
-            {route.params.data?.aboutMe}
-          </TextElement>
-          <View
-            style={[
-              {
-                flexDirection: 'row',
-
-                marginTop: 20,
-              },
-              route.params.data?.Availability
-                ? {justifyContent: 'space-between'}
-                : {justifyContent: 'center'},
-            ]}>
-            {route.params.data?.Availability && (
-              <Button value="Available" disabled={true} style={{width: 150}} />
-            )}
-            <Button
-              value="Message"
-              style={{width: 150}}
-              onPress={() =>
-                navigation.navigate('ChatScreen', {data: route.params.data})
-              }
+                width: 50,
+                height: 50,
+                borderRadius: 25,
+              }}
             />
+          </TouchableOpacity>
+          <View style={{ marginLeft: 15 }}>
+            <TextElement textStyle={{ color: WHITE, fontSize: 14 }}>
+              Hello
+            </TextElement>
+
+            <TextElement textStyle={{ color: WHITE, fontSize: 14 }}>
+              {`${route?.params?.data?.Name} ${route?.params?.data?.lastName}`}
+            </TextElement>
           </View>
         </View>
       </View>
-    </HeaderLayout>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={{
+          width: WINDOW_WIDTH * 0.8,
+          marginTop: 40,
+          alignSelf: "center",
+          height: WINDOW_HEIGHT * 0.7,
+        }}
+      >
+        <TextElement textStyle={{ color: BLACK, fontSize: 20 }}>
+          Upcoming Lessons
+        </TextElement>
+        {StudentData.map((item, index) => (
+          <View
+            style={{
+              backgroundColor: PRIMARY_COLOR,
+              padding: 10,
+              borderRadius: 15,
+              marginTop: 10,
+            }}
+          >
+            <TextElement textStyle={{ color: WHITE }}>
+              Adam Evan , Math lesson
+            </TextElement>
+            <View style={{ marginTop: 5, flexDirection: "row" }}>
+              <Image
+                source={item.Picture}
+                style={{
+                  width: 50,
+                  height: 50,
+                  borderRadius: 25,
+                }}
+              />
+              <View style={{ marginLeft: 10 }}>
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <Feather name="video" color={WHITE} />
+                  <TextElement textStyle={{ color: WHITE, marginLeft: 5 }}>
+                    Video call
+                  </TextElement>
+                </View>
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <Entypo name="calendar" color={WHITE} />
+                  <TextElement textStyle={{ color: WHITE, marginLeft: 5 }}>
+                    Tuesday, 9 june
+                  </TextElement>
+                </View>
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <Feather name="clock" color={WHITE} />
+                  <TextElement textStyle={{ color: WHITE, marginLeft: 5 }}>
+                    12:00 AM
+                  </TextElement>
+                </View>
+              </View>
+            </View>
+          </View>
+        ))}
+      </ScrollView>
+    </View>
   );
 }
 

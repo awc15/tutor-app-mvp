@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.tutor.app-mergeReleaseResources-32:/values-ps/values-ps.xml",
+            "outputFile": "com.tutor.app-mergeReleaseResources-34:/values-ps/values-ps.xml",
             "map": [
                 {
                     "source": "/Users/fasset/.gradle/caches/transforms-3/b64db6df918ccbab726290dc2d0a74f3/transformed/jetified-react-android-0.73.6-release/res/values-ps/values-ps.xml",

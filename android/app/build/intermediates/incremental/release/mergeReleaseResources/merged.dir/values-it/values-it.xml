@@ -43,8 +43,10 @@
     <string name="character_counter_overflowed_content_description">Sono presenti %2$d caratteri in più rispetto al limite di %1$d</string>
     <string name="clear_text_end_icon_content_description">Cancella testo</string>
     <string gender="unknown" name="combobox_description">Casella combinata</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> sta riscontrando problemi con Google Play Services. Riprova."</string>
     <string name="error_icon_content_description">Errore</string>
     <string name="exposed_dropdown_menu_content_description">Mostra il menu a discesa</string>
+    <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Varie"</string>
     <string gender="unknown" name="header_description">Titolo</string>
     <string name="icon_content_description">Icona della finestra di dialogo</string>
     <string gender="unknown" name="image_description">Immagine</string>

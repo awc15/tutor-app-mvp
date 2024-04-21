@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.tutor.app-mergeDebugResources-34:/values-ha/values-ha.xml",
+            "outputFile": "com.tutor.app-mergeDebugResources-36:/values-ha/values-ha.xml",
             "map": [
                 {
                     "source": "/Users/fasset/.gradle/caches/transforms-3/e1231b5b187cb579b629117f9511a862/transformed/jetified-react-android-0.73.6-debug/res/values-ha/values-ha.xml",

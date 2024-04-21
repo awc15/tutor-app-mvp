@@ -1,6 +1,6 @@
-#Wed Apr 17 20:15:27 PKT 2024
-base.0=/Users/fasset/Documents/Tutor/android/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
-base.1=/Users/fasset/Documents/Tutor/android/app/build/intermediates/dex/release/mergeDexRelease/classes2.dex
+#Sun Apr 21 11:30:41 PKT 2024
+base.0=/Users/fasset/Documents/Fahad/GitHub/tutor-app-mvp/android/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
+base.1=/Users/fasset/Documents/Fahad/GitHub/tutor-app-mvp/android/app/build/intermediates/dex/release/mergeDexRelease/classes2.dex
 path.0=classes.dex
 path.1=classes2.dex
 renamed.0=classes.dex

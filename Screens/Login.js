@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import {
   KeyboardAvoidingView,
   Platform,
@@ -6,48 +6,51 @@ import {
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
+} from "react-native";
 
-import {useSelector, useDispatch} from 'react-redux';
-import HeaderLayout from '../Components/HeaderLayout';
-import TextElement from '../Components/TextElement';
-import {WINDOW_HEIGHT, WINDOW_WIDTH} from '../Components/Mixuns';
-import {PRIMARY_COLOR, WARNING, WHITE} from '../assets/Colors';
-import InputField from '../Components/InputField';
-import Button from '../Components/Button';
-import {StudentData, TutorData} from '../assets/MockData';
-function Login({navigation, route}) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+import { useSelector, useDispatch } from "react-redux";
+import HeaderLayout from "../Components/HeaderLayout";
+import TextElement from "../Components/TextElement";
+import { WINDOW_HEIGHT, WINDOW_WIDTH } from "../Components/Mixuns";
+import { PRIMARY_COLOR, WARNING, WHITE } from "../assets/Colors";
+import InputField from "../Components/InputField";
+import Button from "../Components/Button";
+import { StudentData, TutorData } from "../assets/MockData";
+function Login({ navigation, route }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 20;
+  const keyboardVerticalOffset = Platform.OS === "ios" ? 40 : 20;
   return (
     <HeaderLayout>
       <View
         style={{
-          alignItems: 'center',
+          alignItems: "center",
           paddingTop: WINDOW_HEIGHT * 0.1,
-          justifyContent: 'space-between',
+          justifyContent: "space-between",
           height:
-            Platform.OS == 'ios' ? WINDOW_HEIGHT * 0.89 : WINDOW_HEIGHT * 0.95,
-        }}>
-        <TextElement textStyle={{fontSize: 28}}>Login</TextElement>
+            Platform.OS == "ios" ? WINDOW_HEIGHT * 0.89 : WINDOW_HEIGHT * 0.95,
+        }}
+      >
+        <TextElement textStyle={{ fontSize: 28 }}>Login</TextElement>
         <KeyboardAvoidingView
           behavior="position"
-          keyboardVerticalOffset={keyboardVerticalOffset}>
+          keyboardVerticalOffset={keyboardVerticalOffset}
+        >
           <InputField
             placeHolderValue="Email"
             value={email}
-            setValue={value => {
+            setValue={(value) => {
               setEmailError(false);
               setEmail(value);
             }}
-            style={emailError && {borderColor: WARNING}}
+            style={emailError && { borderColor: WARNING }}
           />
           {emailError && (
             <TextElement
-              textStyle={{marginLeft: 15, marginVertical: 5, color: WARNING}}>
+              textStyle={{ marginLeft: 15, marginVertical: 5, color: WARNING }}
+            >
               Please enter correct Email
             </TextElement>
           )}
@@ -55,80 +58,84 @@ function Login({navigation, route}) {
           <InputField
             placeHolderValue="Password"
             value={password}
-            setValue={value => {
+            setValue={(value) => {
               setPasswordError(false);
               setPassword(value);
             }}
             IsSecure={true}
             style={[
-              {marginTop: WINDOW_HEIGHT * 0.02},
-              passwordError && {borderColor: WARNING},
+              { marginTop: WINDOW_HEIGHT * 0.02 },
+              passwordError && { borderColor: WARNING },
             ]}
           />
           {passwordError && (
             <TextElement
-              textStyle={{marginLeft: 15, marginVertical: 5, color: WARNING}}>
+              textStyle={{ marginLeft: 15, marginVertical: 5, color: WARNING }}
+            >
               Please enter correct Password
             </TextElement>
           )}
           <Button
             onPress={() => {
-              if (route?.params?.role == 'student') {
+              if (route?.params?.role == "student") {
                 if (
                   !StudentData.find(
-                    user => user.email.toLowerCase() === email.toLowerCase(),
+                    (user) => user.email.toLowerCase() === email.toLowerCase()
                   )
                 ) {
                   setEmailError(true);
                 }
-                if (!StudentData.find(user => user.Password === password)) {
+                if (!StudentData.find((user) => user.Password === password)) {
                   setPasswordError(true);
                 }
                 if (
                   StudentData.find(
-                    user =>
+                    (user) =>
                       user.email.toLowerCase() === email.toLowerCase() &&
-                      user.Password === password,
+                      user.Password === password
                   )
                 ) {
                   const user = StudentData.find(
-                    user =>
+                    (user) =>
                       user.email.toLowerCase() === email.toLowerCase() &&
-                      user.Password === password,
+                      user.Password === password
                   );
 
-                  navigation.navigate('StudentHome', {data: user});
+                  navigation.navigate("StudentHome", { data: user });
                 }
               } else {
                 if (
                   !TutorData.find(
-                    user => user.email.toLowerCase() === email.toLowerCase(),
+                    (user) => user.email.toLowerCase() === email.toLowerCase()
                   )
                 ) {
                   setEmailError(true);
                 }
-                if (!TutorData.find(user => user.Password === password)) {
+                if (!TutorData.find((user) => user.Password === password)) {
                   setPasswordError(true);
                 }
                 if (
                   TutorData.find(
-                    user =>
+                    (user) =>
                       user.email.toLowerCase() === email.toLowerCase() &&
-                      user.Password === password,
+                      user.Password === password
                   )
                 ) {
                   const user = TutorData.find(
-                    user =>
+                    (user) =>
                       user.email.toLowerCase() === email.toLowerCase() &&
-                      user.Password === password,
+                      user.Password === password
                   );
 
-                  navigation.navigate('TutorHome', {data: user, from: 'Login'});
+                  navigation.navigate("TutorHome", {
+                    data: user,
+                    from: "Login",
+                  });
                 }
               }
             }}
             value="Login"
-            style={{marginTop: WINDOW_HEIGHT * 0.05}}
+            style={{ marginTop: WINDOW_HEIGHT * 0.05 }}
             disabled={
               !(
                 email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) &&
@@ -138,13 +145,15 @@ function Login({navigation, route}) {
           />
           <TouchableOpacity
             onPress={() => {
-              route?.params?.role == 'student'
-                ? navigation.navigate('SignIn')
-                : navigation.navigate('TutorRegistration');
+              route?.params?.role == "student"
+                ? navigation.navigate("SignIn")
+                : navigation.navigate("TutorRegistration");
             }}
-            style={{justifyContent: 'center', alignSelf: 'center'}}>
+            style={{ justifyContent: "center", alignSelf: "center" }}
+          >
             <TextElement
-              textStyle={{fontSize: 14, marginTop: WINDOW_HEIGHT * 0.02}}>
+              textStyle={{ fontSize: 14, marginTop: WINDOW_HEIGHT * 0.02 }}
+            >
               Create Account?
             </TextElement>
           </TouchableOpacity>

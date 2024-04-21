@@ -41,8 +41,10 @@
     <string name="character_counter_overflowed_content_description">Lumampas sa limitasyon sa bilang ng character %1$d sa %2$d</string>
     <string name="clear_text_end_icon_content_description">I-clear ang text</string>
     <string gender="unknown" name="combobox_description">Combox Box</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"Nagkakaproblema ang <ns1:g id="APP_NAME">%1$s</ns1:g> sa mga serbisyo ng Google Play. Pakisubukang muli."</string>
     <string name="error_icon_content_description">Error</string>
     <string name="exposed_dropdown_menu_content_description">Ipakita ang dropdown na menu</string>
+    <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Iba Pa"</string>
     <string name="icon_content_description">Icon ng Dialog</string>
     <string name="item_view_role_description">Tab</string>
     <string name="material_clock_toggle_content_description">Piliin ang AM o PM</string>

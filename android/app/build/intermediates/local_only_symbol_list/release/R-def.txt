@@ -2,7 +2,6 @@ R_DEF: Internal format may change without notice
 local
 drawable assets_images_genralimage
 drawable assets_images_genralstudent
-drawable assets_images_image
 drawable assets_images_student1
 drawable assets_images_student2
 drawable assets_images_tutor1
